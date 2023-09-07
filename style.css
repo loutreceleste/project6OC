@@ -1,0 +1,127 @@
+/* Ceci esty mon block nav */
+.navbar {
+    display: flex;
+    gap:173px;
+    margin: -11px;
+    background: black;
+}
+.navbar__logo {
+    font-size: 2em;
+    margin-left: 62px;
+    margin-right: -1636px;;
+    margin-bottom: 10px;
+}
+.navbar__boutons {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    display: flex;
+    gap: 82px;
+    margin: auto;
+    list-style-type: none
+}
+img {
+    width: 25%;
+    filter: invert(100%);
+}
+
+/* Ceci est mon block body*/
+.infos {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+.infos__titres {
+    font-size: 35px;
+    margin-left: 90px;
+    margin-top: 10px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+.infos__film_selectione{
+    background-image: url(images/image_film_selectione.jpg);
+    background-position: 70% 50%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 339px;
+    transition: all 0.3s ease-in-out;
+}
+.infos__film_selectione:hover {
+    transform: scale(1.1, 1.1);
+    transition: all 0.3s ease-in-out;
+    height: 500px;
+}
+
+.infos__films_mieux_note{
+    background-image: url(images/image_mieux_note.jpg);
+    background-position: 70% 23%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 339px;
+    transition: all 0.3s ease-in-out;
+}
+.infos__films_mieux_note:hover{
+    transform: scale(1.1,1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.infos__science_fiction{
+    background-image: url(images/image_science_fiction.jpeg);
+    background-position: 80% 80%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 339px;
+    transition: all 0.3s ease-in-out;
+}
+.infos__science_fiction:hover{
+    transform: scale(1.1,1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.infos__fantastique{
+    background-image: url(images/image_fantastique.jpg);
+    background-position: 80% 50%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 339px;
+    transition: all 0.3s ease-in-out;
+}
+.infos__fantastique:hover{
+    transform: scale(1.1,1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.infos__animation{
+    background-image: url(images/image_animation.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 70% 14%;
+    height: 339px;
+    transition: all 0.3s ease-in-out;
+}
+.infos__animation:hover{
+    transform: scale(1.1,1.1);
+    transition: all 0.3s ease-in-out;
+
+}
+
+.infos__texte {
+    font-size: 1em;
+    margin-left: 90px;
+    margin-top: 10px;
+}
+
+html {
+    background-color: black;
+}
+.selecteur {
+    background-color: black;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    border: none;
+    font-size: 16px;
+}
+
+
+
