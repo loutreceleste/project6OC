@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "name": "project6OC",
+  "version": "1.0.0",
+  "dependencies": {
+    "cross-fetch": "^4.0.0",
+    "node-fetch": "^3.3.2"
+  }
+}
