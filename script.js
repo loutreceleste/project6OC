@@ -56,7 +56,7 @@ function fetchAndExtractImageUrls(parametre, containerId, gaucheId, droiteId) {
 
                         hiddeBouton(gaucheId, droiteId, 0);
 
-                        initAddEventListenerInfosFilms();
+                initAddEventListenerInfosFilms();
                     }
                 }
             })
@@ -125,8 +125,7 @@ function initAddEventListenerInfosFilms() {
                 })
                 .then(data => {
                     addInfosMovies(this, data);
-                    afficherInfosFilms(imageUrl, title, long_description, genres, date_published, avg_vote, imdb_score, directors,
-                            actors, duration, countries, worldwide_gross_income)
+                    afficherInfosFilms(data)
                 })
                 .catch(err => {
                     console.error(err);
@@ -135,61 +134,60 @@ function initAddEventListenerInfosFilms() {
     }
 }
 
-function afficherInfosFilms(imageUrl, title, long_description, genres, date_published, avg_vote, imdb_score, directors,
-                            actors, duration, countries, worldwide_gross_income) {
+function afficherInfosFilms(data) {
 
     let popupInfo = document.getElementById("popup-overlay");
     let popupContent = document.querySelector(".popup-content");
 
-    popupContent.innerHTML = `<img src="${imageUrl}" alt="Film" class="box_one"/>`;
+    popupContent.innerHTML = `<img src="${data.image_url}" alt="Film" class="box_one"/>`;
 
     const original_title = document.createElement('div');
-    original_title.textContent = title;
+    original_title.textContent = data.original_title;
     original_title.classList.add('box_two')
 
     const data_genres = document.createElement('div');
-    data_genres.textContent = genres;
+    data_genres.textContent = data.genres;
     data_genres.classList.add('box_three')
 
     const data_date_published = document.createElement('div');
-    data_date_published.textContent = 'Date: ' + date_published;
+    data_date_published.textContent = 'Date: ' + data.date_published;
     data_date_published.classList.add('box_four')
 
     const data_avg_vote = document.createElement('div');
-    data_avg_vote.textContent = 'Note moyene: ' + avg_vote;
+    data_avg_vote.textContent = 'Note moyene: ' + data.avg_vote;
     data_avg_vote.classList.add('box_five')
 
     const data_imdb_score = document.createElement('div');
-    data_imdb_score.textContent = 'Note IMDB: ' + imdb_score;
+    data_imdb_score.textContent = 'Note IMDB: ' + data.imdb_score;
     data_imdb_score.classList.add('box_six')
 
     const data_directors = document.createElement('div');
-    data_directors.textContent = 'Realisateur(s): ' +  directors;
+    data_directors.textContent = 'Realisateur(s): ' +  data.directors;
     data_directors.classList.add('box_seven')
 
     const data_actors = document.createElement('div');
-    data_actors.textContent = 'Acteurs: ' + actors;
+    data_actors.textContent = 'Acteurs: ' + data.actors;
     data_actors.classList.add('box_eight')
 
     const data_duration = document.createElement('div');
-    data_duration.textContent = 'Durée: ' + duration + ' min.';
+    data_duration.textContent = 'Durée: ' + data.duration + ' min.';
     data_duration.classList.add('box_nine')
 
     const data_countries = document.createElement('div');
-    data_countries.textContent = 'Pays: ' + countries;
+    data_countries.textContent = 'Pays: ' + data.countries;
     data_countries.classList.add('box_ten')
 
     const data_worldwide_gross_income = document.createElement('div');
-    if (worldwide_gross_income === 'null') {
-        data_worldwide_gross_income.textContent = 'Résultat au Box Office: ' + worldwide_gross_income;
+    if (data.worldwide_gross_income === 'null') {
+        data_worldwide_gross_income.textContent = 'Résultat au Box Office: ' + data.worldwide_gross_income;
     }
     else {
-        data_worldwide_gross_income.textContent = 'Résultat au Box Office: ' + worldwide_gross_income + ' $';
+        data_worldwide_gross_income.textContent = 'Résultat au Box Office: ' + data.worldwide_gross_income + ' $';
     }
     data_worldwide_gross_income.classList.add('box_eleven')
 
     const description = document.createElement('p');
-    description.textContent = 'Description: ' + long_description;
+    description.textContent = 'Description: ' + data.long_description;
     description.classList.add('box_twelve')
 
     const newButton = document.createElement('button');
