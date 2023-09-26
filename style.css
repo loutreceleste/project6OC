@@ -147,7 +147,6 @@ html {
     transform: rotate(0deg);
     transition: all 0.3s ease;
 }
-
 #right_best, #right_drama, #right_horror, #right_sci-fi {
     right: 0;
     opacity: 0.4;
@@ -165,6 +164,7 @@ html {
     transition: all 0.3s ease;
 }
 
+/* Ceci est mon block de page popup */
 #popup-overlay {
     color: white;
     position: fixed;
@@ -178,11 +178,9 @@ html {
     justify-content: center;
     display: none;
 }
-
 #popup-overlay.open {
     display: block; !important;
 }
-
 .popup-content {
     width: 950px;
     height: 400px;
@@ -200,14 +198,12 @@ html {
     grid-template-rows: 60px 40px 40px 40px 100px;
     grid-gap: 15px;
 }
-
 .popup-content p{
     margin: 7px 0;
     max-height: 150px;
     overflow-y: auto;
     padding: 10px;
 }
-
 #popup_exit {
     border-radius: 10px;
     position: absolute;
@@ -221,6 +217,7 @@ html {
     padding-top: 65px;
 }
 
+/* Ceci est mon block de gestion de grid pour l'affichage popup */
 .box_one {
     grid-column: 1 / 2;
     grid-row: 1 / 6;
