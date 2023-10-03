@@ -1,3 +1,6 @@
+
+
+
 /* Ceci esty mon block nav */
 .navbar {
     display: flex;
@@ -47,6 +50,8 @@ img {
 }
 html {
     background-color: black;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 .selecteur {
     background-color: black;
@@ -137,9 +142,9 @@ html {
 .boutons{
     filter: invert(0%);
     position: absolute;
-    width: 32px;
+    width: 53px;
     cursor: pointer;
-    top: 98px;
+    top: 84px;
 }
 #left_best, #left_drama, #left_horror, #left_sci-fi {
     left: 0;
@@ -205,10 +210,14 @@ html {
     padding: 10px;
 }
 #popup_exit {
+    font-size: 17px;
+    background-color: red;
+    color: white;
+    border: none;
     border-radius: 10px;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
 }
 .popup-content img {
     filter: unset;
@@ -261,6 +270,58 @@ html {
 .box_twelve {
     grid-column: 2 / 5;
     grid-row: 5 / 6;
+}
+
+
+#the_best_movie {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 120px 100px 60px;
+    grid-gap: 15px;
+
+}
+
+#the_best_movie img {
+    filter: unset;
+    width: 300px;
+    height: 400px;
+    max-width: 100%;
+    padding-left: 165px;
+    padding-top: 30px;
+}
+.box_fourteen {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+
+}
+.box_thirteen {
+    padding-top: 46px;
+    grid-column: 2 / 2;
+    grid-row: 1 / 2;
+    font-size: 70px;
+
+}
+.box_fifteen {
+    padding-top: -11px;
+    grid-column: 2 / 2;
+    grid-row: 3 / 4;
+    font-size: 20px;
+}
+.box_sixteen {
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    grid-column: 2 / 2;
+    grid-row: 2 / 3;
+    border-radius: 10px;
+    border: none;
+    height: 47px;
+    width: 185px;
+    align-self: end;
+}
+
+footer {
+    text-align: center;
 }
 
 

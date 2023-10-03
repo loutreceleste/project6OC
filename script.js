@@ -45,7 +45,6 @@ function getBestMovie(settings) {
         .then(data => {
             data.results.forEach(result => {
                 bestMovieInfos.push(result);
-
                 getAllInfosBestMovie(bestMovieInfos)
             });
         })
@@ -67,14 +66,28 @@ function getAllInfosBestMovie (bestMovieInfos) {
                 })
                 .then(data => {
                     allBestMovieInfos.push(data);
-
-                    addInfosBestMovie(allBestMovieInfos)
+                    showInfosBestMovie(allBestMovieInfos)
+                    addEventListenerBestMovie(allBestMovieInfos)
                 })
     })
 }
 
+function addEventListenerBestMovie (allBestMovieInfos) {
+    const bouton = document.querySelector(".box_sixteen")
+    console.log(bouton)
+    allBestMovieInfos.forEach(movieInfo => {
+        const id = movieInfo.id;
+        console.log(id)
+
+        bouton.addEventListener("click", () => {
+            console.log('coucou')
+        })
+
+    })
+}
+
 /* This function append the needed infos in the HTML */
-function addInfosBestMovie(allBestMovieInfos) {
+function showInfosBestMovie(allBestMovieInfos) {
     const the_best_movie = document.getElementById("the_best_movie");
 
     allBestMovieInfos.forEach(movieInfo => {
@@ -94,9 +107,14 @@ function addInfosBestMovie(allBestMovieInfos) {
         data_long_description.textContent = resume;
         data_long_description.classList.add('box_fifteen')
 
+        let readButton = document.createElement('button');
+        readButton.textContent = 'Lire le film';
+        readButton.classList.add('box_sixteen')
+
         the_best_movie.appendChild(data_title)
         the_best_movie.appendChild(data_image)
         the_best_movie.appendChild(data_long_description)
+        the_best_movie.appendChild(readButton)
 
     })
 }
@@ -174,23 +192,6 @@ function buttonManagement(containerId, leftId, rightId, container) {
         }
     };
 }
-
-/* Function that implement the infoprmation in the attribute of the clicked photo */
-function addInfosMovies(image, data) {
-    image.setAttribute('data-image_url', data.image_url);
-    image.setAttribute('data-original_title', data.original_title);
-    image.setAttribute('data-genres', data.genres);
-    image.setAttribute('data-date_published', data.date_published);
-    image.setAttribute('data-avg_vote', data.avg_vote);
-    image.setAttribute('data-imdb_score', data.imdb_score);
-    image.setAttribute('data-directors', data.directors);
-    image.setAttribute('data-actors', data.actors);
-    image.setAttribute('data-duration', data.duration);
-    image.setAttribute('data-countries', data.countries);
-    image.setAttribute('data-worldwide_gross_income', data.worldwide_gross_income);
-    image.setAttribute('data-long_description', data.long_description);
-}
-
 function initAddEventListenerInfosFilms() {
     const images = document.getElementsByClassName("photos");
 
@@ -215,6 +216,24 @@ function initAddEventListenerInfosFilms() {
         });
     }
 }
+
+/* Function that implement the infoprmation in the attribute of the clicked photo */
+function addInfosMovies(image, data) {
+    image.setAttribute('data-image_url', data.image_url);
+    image.setAttribute('data-original_title', data.original_title);
+    image.setAttribute('data-genres', data.genres);
+    image.setAttribute('data-date_published', data.date_published);
+    image.setAttribute('data-avg_vote', data.avg_vote);
+    image.setAttribute('data-imdb_score', data.imdb_score);
+    image.setAttribute('data-directors', data.directors);
+    image.setAttribute('data-actors', data.actors);
+    image.setAttribute('data-duration', data.duration);
+    image.setAttribute('data-countries', data.countries);
+    image.setAttribute('data-worldwide_gross_income', data.worldwide_gross_income);
+    image.setAttribute('data-long_description', data.long_description);
+}
+
+
 
 function afficherInfosFilms(data) {
 
@@ -276,7 +295,7 @@ function afficherInfosFilms(data) {
     description.classList.add('box_twelve')
 
     let exitButton = document.createElement('button');
-    exitButton.textContent = 'X';
+    exitButton.textContent = 'x';
     exitButton.id = 'popup_exit';
     exitButton.onclick = function () {
         popupInfo.classList.remove("open")
