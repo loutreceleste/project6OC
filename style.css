@@ -1,7 +1,5 @@
 
-
-
-/* Ceci esty mon block nav */
+/* This is my nav block */
 .navbar {
     display: flex;
     gap:173px;
@@ -11,7 +9,7 @@
 .navbar__logo {
     font-size: 2em;
     margin-left: 62px;
-    margin-right: -1636px;;
+    margin-right: -1636px;
     margin-bottom: 10px;
 }
 .navbar__boutons {
@@ -20,7 +18,7 @@
     display: flex;
     gap: 82px;
     margin: auto;
-    list-style-type: none
+    list-style-type: none;
 }
 img {
     width: 25%;
@@ -28,7 +26,7 @@ img {
 }
 
 
-/* Ceci est mon block body */
+/* This is my body block */
 .infos {
     display: flex;
     flex-direction: column;
@@ -62,7 +60,7 @@ html {
 }
 
 
-/* Ceci sont mes blocks des fonds de mes carrousels */
+/* This is my block for my background carousel */
 .infos__best_movie {
     background-image: url(images/image_film_selectione.jpg);
     background-position: 70% 50%;
@@ -105,8 +103,8 @@ html {
 }
 
 
-/* Ceci est mon block d'infos generales */
-#carousel__1, #carousel__3, #carousel__2, #carousel__4{
+/* This is my block for all carousel information */
+#carousel__1, #carousel__3, #carousel__2, #carousel__4 {
     gap: 30px;
     margin-right: 35px;
     margin-left: 35px;
@@ -122,7 +120,7 @@ html {
     width: 1800px;
     height: 230px;
 }
-.photos{
+.photos {
     scale: initial;
     width: 133px;
     height: 196px;
@@ -132,14 +130,14 @@ html {
     transition: all 0.3s ease;
     cursor: pointer;
 }
-.photos:hover{
+.photos:hover {
     transform: scale(1.17);
     transition: all 0.3s ease;
 }
 
 
-/* Ceci est mon block de boutons */
-.boutons{
+/* This is my button block */
+.boutons {
     filter: invert(0%);
     position: absolute;
     width: 53px;
@@ -169,7 +167,8 @@ html {
     transition: all 0.3s ease;
 }
 
-/* Ceci est mon block de page popup */
+
+/* This is my popup block */
 #popup-overlay {
     color: white;
     position: fixed;
@@ -203,7 +202,7 @@ html {
     grid-template-rows: 60px 40px 40px 40px 100px;
     grid-gap: 15px;
 }
-.popup-content p{
+.popup-content p {
     margin: 7px 0;
     max-height: 150px;
     overflow-y: auto;
@@ -226,7 +225,8 @@ html {
     padding-top: 65px;
 }
 
-/* Ceci est mon block de gestion de grid pour l'affichage popup */
+
+/* This is my grid management block for popup display */
 .box_one {
     grid-column: 1 / 2;
     grid-row: 1 / 6;
@@ -272,15 +272,13 @@ html {
     grid-row: 5 / 6;
 }
 
-
+/* This is my best movie block */
 #the_best_movie {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 120px 100px 60px;
     grid-gap: 15px;
-
 }
-
 #the_best_movie img {
     filter: unset;
     width: 300px;
@@ -289,17 +287,22 @@ html {
     padding-left: 165px;
     padding-top: 30px;
 }
+.box_sixteen:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+/* This is my grid management block for displaying the best movie  */
 .box_fourteen {
     grid-column: 1 / 4;
     grid-row: 1 / 2;
-
 }
 .box_thirteen {
     padding-top: 46px;
     grid-column: 2 / 2;
     grid-row: 1 / 2;
     font-size: 70px;
-
 }
 .box_fifteen {
     padding-top: -11px;
@@ -318,8 +321,11 @@ html {
     height: 47px;
     width: 185px;
     align-self: end;
+    transition: all 0.3s ease;
 }
 
+
+/* This is my block for the footer */
 footer {
     text-align: center;
 }

@@ -7,24 +7,18 @@ mainFunction()
 function mainFunction () {
     window.onload = function () {
 
-    let settings = ["imdb_score_min=1", "genre=horror", "genre=sci-Fi", "genre=drama"]
-
+    let settings = ["imdb_score_min=1", "genre=horror", "genre=sci-Fi", "genre=drama"];
 
         fetchAndExtractImageUrls(settings[0], "carousel__1 movie_images", "left_best",
             "right_best");
-
         fetchAndExtractImageUrls(settings[1], "carousel__2 movie_images", "left_horror",
             "right_horror");
-
         fetchAndExtractImageUrls(settings[2], "carousel__3 movie_images", "left_sci-fi",
             "right_sci-fi");
-
         fetchAndExtractImageUrls(settings[3], "carousel__4 movie_images", "left_drama",
             "right_drama");
-
-        getBestMovie("imdb_score_min=1")
-
-    };
+        getBestMovie("imdb_score_min=1");
+    }
 }
 
 
@@ -45,8 +39,8 @@ function getBestMovie(settings) {
         .then(data => {
             data.results.forEach(result => {
                 bestMovieInfos.push(result);
-                getAllInfosBestMovie(bestMovieInfos)
-            });
+                getAllInfosBestMovie(bestMovieInfos);
+            })
         })
 }
 
@@ -55,7 +49,7 @@ function getAllInfosBestMovie (bestMovieInfos) {
     let allBestMovieInfos = [];
 
     bestMovieInfos.forEach(movieInfo => {
-        const id = movieInfo.id
+        const id = movieInfo.id;
 
         fetch(`http://localhost:8000/api/v1/titles/${id}`)
                 .then(res => {
@@ -66,27 +60,23 @@ function getAllInfosBestMovie (bestMovieInfos) {
                 })
                 .then(data => {
                     allBestMovieInfos.push(data);
-                    showInfosBestMovie(allBestMovieInfos)
-                    addEventListenerBestMovie(allBestMovieInfos)
+                    showInfosBestMovie(allBestMovieInfos);
+                    addEventListenerBestMovie(allBestMovieInfos);
                 })
     })
 }
 
+/* We use this function to add an event-listener to the buton and we use the function showInfosMovie to use the popup */
 function addEventListenerBestMovie (allBestMovieInfos) {
-    const bouton = document.querySelector(".box_sixteen")
-    console.log(bouton)
+    const bouton = document.querySelector(".box_sixteen");
     allBestMovieInfos.forEach(movieInfo => {
-        const id = movieInfo.id;
-        console.log(id)
-
         bouton.addEventListener("click", () => {
-            console.log('coucou')
+            showInfosMovie(movieInfo);
         })
-
     })
 }
 
-/* This function append the needed infos in the HTML */
+/* This function append the needed infos in the HTML and show the infos */
 function showInfosBestMovie(allBestMovieInfos) {
     const the_best_movie = document.getElementById("the_best_movie");
 
@@ -97,24 +87,24 @@ function showInfosBestMovie(allBestMovieInfos) {
 
         let data_title = document.createElement('div');
         data_title.textContent = title;
-        data_title.classList.add('box_thirteen')
+        data_title.classList.add('box_thirteen');
 
         let data_image = document.createElement('img');
         data_image.src = imageUrl;
-        data_image.classList.add('box_fourteen')
+        data_image.classList.add('box_fourteen');
 
         let data_long_description = document.createElement('div');
         data_long_description.textContent = resume;
-        data_long_description.classList.add('box_fifteen')
+        data_long_description.classList.add('box_fifteen');
 
         let readButton = document.createElement('button');
         readButton.textContent = 'Lire le film';
-        readButton.classList.add('box_sixteen')
+        readButton.classList.add('box_sixteen');
 
-        the_best_movie.appendChild(data_title)
-        the_best_movie.appendChild(data_image)
-        the_best_movie.appendChild(data_long_description)
-        the_best_movie.appendChild(readButton)
+        the_best_movie.appendChild(data_title);
+        the_best_movie.appendChild(data_image);
+        the_best_movie.appendChild(data_long_description);
+        the_best_movie.appendChild(readButton);
 
     })
 }
@@ -136,18 +126,14 @@ function fetchAndExtractImageUrls(settings, containerId, leftId, rightId) {
             .then(data => {
                 data.results.forEach(result => {
                     imageUrls.push(result);
-
                 });
-
                 createCarousel(containerId, imageUrls, leftId, rightId);
-
                 hideBoutton(leftId, rightId, 0);
-
                 initAddEventListenerInfosFilms();
             })
             .catch(err => {
                 console.error(err);
-            });
+            })
 }
 
 /* This function is used to set each images at the right places with some basic information */
@@ -162,7 +148,7 @@ function createCarousel (containerId, imageUrls, leftId, rightId) {
         div.style.backgroundImage = `url('${imageUrls[i].image_url}')`;
         container.appendChild(div);
     }
-    buttonManagement(containerId, leftId, rightId, container)
+    buttonManagement(containerId, leftId, rightId, container);
 }
 
 /* This function is used to create the concept of carousel */
@@ -179,7 +165,7 @@ function buttonManagement(containerId, leftId, rightId, container) {
             container.style.transition = 'all 0.3s ease';
             hideBoutton(leftId, rightId, position);
         }
-    };
+    }
 
     const droite = document.getElementById(rightId);
     droite.onclick = function () {
@@ -190,8 +176,10 @@ function buttonManagement(containerId, leftId, rightId, container) {
             container.style.transition = 'all 0.3s ease';
             hideBoutton(leftId, rightId, position);
         }
-    };
+    }
 }
+
+/* This functione is used to add an event listener on the movies photos */
 function initAddEventListenerInfosFilms() {
     const images = document.getElementsByClassName("photos");
 
@@ -208,16 +196,16 @@ function initAddEventListenerInfosFilms() {
                 })
                 .then(data => {
                     addInfosMovies(this, data);
-                    afficherInfosFilms(data)
+                    showInfosMovie(data);
                 })
                 .catch(err => {
                     console.error(err);
-                });
-        });
+                })
+        })
     }
 }
 
-/* Function that implement the infoprmation in the attribute of the clicked photo */
+/* Function that implement the information in the attribute of the clicked photo */
 function addInfosMovies(image, data) {
     image.setAttribute('data-image_url', data.image_url);
     image.setAttribute('data-original_title', data.original_title);
@@ -234,53 +222,53 @@ function addInfosMovies(image, data) {
 }
 
 
-
-function afficherInfosFilms(data) {
+/* Function used to implement the information in the photos */
+function showInfosMovie(data) {
 
     let popupInfo = document.getElementById("popup-overlay");
     let popupContent = document.querySelector(".popup-content");
 
     popupContent.innerHTML = '';
 
-    let data_image_url = document.createElement('img')
-    data_image_url.src = data.image_url
-    data_image_url.classList.add('box_one')
+    let data_image_url = document.createElement('img');
+    data_image_url.src = data.image_url;
+    data_image_url.classList.add('box_one');
 
     let data_original_title = document.createElement('div');
     data_original_title.textContent = data.original_title;
-    data_original_title.classList.add('box_two')
+    data_original_title.classList.add('box_two');
 
     let data_genres = document.createElement('div');
     data_genres.textContent = data.genres;
-    data_genres.classList.add('box_three')
+    data_genres.classList.add('box_three');
 
     let data_date_published = document.createElement('div');
     data_date_published.textContent = 'Date: ' + data.date_published;
-    data_date_published.classList.add('box_four')
+    data_date_published.classList.add('box_four');
 
     let data_avg_vote = document.createElement('div');
     data_avg_vote.textContent = 'Note moyene: ' + data.avg_vote;
-    data_avg_vote.classList.add('box_five')
+    data_avg_vote.classList.add('box_five');
 
     let data_imdb_score = document.createElement('div');
     data_imdb_score.textContent = 'Note IMDB: ' + data.imdb_score;
-    data_imdb_score.classList.add('box_six')
+    data_imdb_score.classList.add('box_six');
 
     let data_directors = document.createElement('div');
     data_directors.textContent = 'Realisateur(s): ' + data.directors;
-    data_directors.classList.add('box_seven')
+    data_directors.classList.add('box_seven');
 
     let data_actors = document.createElement('div');
     data_actors.textContent = 'Acteurs: ' + data.actors;
-    data_actors.classList.add('box_eight')
+    data_actors.classList.add('box_eight');
 
     let data_duration = document.createElement('div');
     data_duration.textContent = 'Durée: ' + data.duration + ' min.';
-    data_duration.classList.add('box_nine')
+    data_duration.classList.add('box_nine');
 
     let data_countries = document.createElement('div');
     data_countries.textContent = 'Pays: ' + data.countries;
-    data_countries.classList.add('box_ten')
+    data_countries.classList.add('box_ten');
 
     let data_worldwide_gross_income = document.createElement('div');
     if (data_worldwide_gross_income === 'null') {
@@ -288,21 +276,21 @@ function afficherInfosFilms(data) {
     } else {
         data_worldwide_gross_income.textContent = 'Résultat au Box Office: ' + data.worldwide_gross_income + ' $';
     }
-    data_worldwide_gross_income.classList.add('box_eleven')
+    data_worldwide_gross_income.classList.add('box_eleven');
 
     let description = document.createElement('p');
     description.textContent = 'Description: ' + data.long_description;
-    description.classList.add('box_twelve')
+    description.classList.add('box_twelve');
 
     let exitButton = document.createElement('button');
     exitButton.textContent = 'x';
     exitButton.id = 'popup_exit';
     exitButton.onclick = function () {
-        popupInfo.classList.remove("open")
+        popupInfo.classList.remove("open");
     }
     exitButton.classList.add('mon-bouton');
 
-    popupInfo.classList.add("open")
+    popupInfo.classList.add("open");
 
     let elementsToAddMovie = [data_image_url, data_original_title, exitButton, data_genres, data_date_published,
         data_countries, data_avg_vote, data_imdb_score, data_duration, data_directors, data_actors,
@@ -310,7 +298,7 @@ function afficherInfosFilms(data) {
 
     elementsToAddMovie.forEach(element => {
         popupContent.appendChild(element);
-    });
+    })
 }
 
 /* Function to remove buttons when they reach their goal  */
