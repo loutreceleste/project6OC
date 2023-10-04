@@ -1,6 +1,6 @@
 # Project 6 Web Film Ranking Application OpenClassRooms
 
-JustStream association is renowned for its movie ranking newsletters and is now venturing into providing its subscribers with an engaging real-time experience through a web application. This project is dedicated to crafting an interface for visualizing and interacting with movie rankings in diverse categories.
+JustStream association is known for its movie ranking newsletters and is now venturing into providing its subscribers with an engaging real-time experience through a web application. This project is dedicated to crafting an interface for visualizing and interacting with movie rankings in diverse categories.
 
 ## Project Contents
 
@@ -14,17 +14,15 @@ JustStream association is renowned for its movie ranking newsletters and is now 
 
 2. Make sure you have Python ≥ 3.7 installed.
 
-3. Make sur to have the local server API located on this Git repository (https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR)
+3. Make sur to install this local server API located on this Git repository (https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR)
 
 
 ## Usage
-1. Ensure the local HTTP server provided is running on your computer.
+1. Ensure the local server API provided in the installation section is running on your computer.
 
-2. Place all project files in the root directory of the server.
+2. Access the application by opening the `index.html` file in your browser.
 
-3. Access the application by opening the `index.html` file in your browser.
-
-4. Explore the various movie rankings by category and click on the images to access detailed information about each movie.
+3. Explore the various movie rankings by category and click on the images to access detailed information about each movie.
 
 ## Authors
 
