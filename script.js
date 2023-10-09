@@ -9,13 +9,13 @@ function mainFunction () {
 
     let settings = ["imdb_score_min=1", "genre=horror", "genre=sci-Fi", "genre=drama"];
 
-        fetchAndExtractImageUrls(settings[0], "carousel__1 movie_images", "left_best",
+        fetchAndExtractImageUrls(settings[0], "carousel__1_movie_images", "left_best",
             "right_best");
-        fetchAndExtractImageUrls(settings[1], "carousel__2 movie_images", "left_horror",
+        fetchAndExtractImageUrls(settings[1], "carousel__2_movie_images", "left_horror",
             "right_horror");
-        fetchAndExtractImageUrls(settings[2], "carousel__3 movie_images", "left_sci-fi",
+        fetchAndExtractImageUrls(settings[2], "carousel__3_movie_images", "left_sci-fi",
             "right_sci-fi");
-        fetchAndExtractImageUrls(settings[3], "carousel__4 movie_images", "left_drama",
+        fetchAndExtractImageUrls(settings[3], "carousel__4_movie_images", "left_drama",
             "right_drama");
         getBestMovie("imdb_score_min=1");
     }
@@ -195,7 +195,6 @@ function initAddEventListenerInfosFilms() {
                     return res.json();
                 })
                 .then(data => {
-                    addInfosMovies(this, data);
                     showInfosMovie(data);
                 })
                 .catch(err => {
@@ -204,23 +203,6 @@ function initAddEventListenerInfosFilms() {
         })
     }
 }
-
-/* Function that implement the information in the attribute of the clicked photo */
-function addInfosMovies(image, data) {
-    image.setAttribute('data-image_url', data.image_url);
-    image.setAttribute('data-original_title', data.original_title);
-    image.setAttribute('data-genres', data.genres);
-    image.setAttribute('data-date_published', data.date_published);
-    image.setAttribute('data-avg_vote', data.avg_vote);
-    image.setAttribute('data-imdb_score', data.imdb_score);
-    image.setAttribute('data-directors', data.directors);
-    image.setAttribute('data-actors', data.actors);
-    image.setAttribute('data-duration', data.duration);
-    image.setAttribute('data-countries', data.countries);
-    image.setAttribute('data-worldwide_gross_income', data.worldwide_gross_income);
-    image.setAttribute('data-long_description', data.long_description);
-}
-
 
 /* Function used to implement the information in the photos */
 function showInfosMovie(data) {
@@ -312,7 +294,7 @@ function hideBoutton(leftId, rightId, position) {
     else
         left.style.visibility = 'visible';
 
-    if (position <= maxPosition)
+    if (position < maxPosition)
         right.style.visibility = 'hidden';
     else
         right.style.visibility = 'visible';

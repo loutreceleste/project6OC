@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns="http://www.w3.org/1999/html">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>JustStream</title>
@@ -9,23 +10,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
-<nav class="navbar">
-    <h1 class="navbar__logo"><img src="https://user.oc-static.com/upload/2020/09/18/16004298163529_P5.png" alt="Logo"></h1>
-        <ul class="navbar__boutons">
-            <li>Acceuil</li>
-            <li><label>
-                <select class="selecteur">
-                    <option>Catégories</option>
-                    <option value="bests_movies" >Films les mieux notés</option>
-                    <option value="Science Fiction">Horreur</option>
-                    <option value="Science Fiction">Science-Fiction</option>
-                    <option value="Science Fiction">Fantasy</option>
-                    </select>
-            </label>
-            </li>
-        </ul>
-</nav>
+
 <body class="infos">
+
+    <header>
+        <nav class="navbar">
+            <h1 class="navbar__logo"><img src="https://user.oc-static.com/upload/2020/09/18/16004298163529_P5.png" alt="Logo"></h1>
+                <ul class="navbar__boutons">
+                    <li>Acceuil</li>
+                    <li><label>
+                        <select class="selecteur">
+                            <option>Catégories</option>
+                            <option value="bests_movies" >Films les mieux notés</option>
+                            <option value="Science Fiction">Horreur</option>
+                            <option value="Science Fiction">Science-Fiction</option>
+                            <option value="Science Fiction">Fantasy</option>
+                            </select>
+                    </label>
+                    </li>
+                </ul>
+        </nav>
+    </header>
 
     <div class="infos__best_movie">
         <h2 class="infos__titres">Le meilleur film</h2>
@@ -34,9 +39,9 @@
     </div>
 
     <div class="infos__bests_movies">
-        <h3 class="infos__titres">Les films les mieux notés par IMDB</h3>
+        <h2 class="infos__titres">Les films les mieux notés par IMDB</h2>
             <div id="carousel__1">
-                <div id="carousel__1 movie_images">
+                <div id="carousel__1_movie_images">
                 </div>
                 <img src="images/left_arrow.png" class="boutons" id="left_best" alt="Bouton gauche Mieux Noté">
                 <img src="images/left_arrow.png" class="boutons" id="right_best" alt="Bouton droit Mieux Noté">
@@ -44,9 +49,9 @@
     </div>
 
     <div class="infos__horror">
-        <h4 class="infos__titres">Les films d'Horreur</h4>
+        <h2 class="infos__titres">Les films d'Horreur</h2>
             <div id="carousel__2">
-                <div id="carousel__2 movie_images">
+                <div id="carousel__2_movie_images">
                 </div>
                 <img src="images/left_arrow.png" class="boutons" id="left_horror" alt="Bouton gauche Horreur">
                 <img src="images/left_arrow.png" class="boutons" id="right_horror" alt="Bouton droit Horreur">
@@ -54,9 +59,9 @@
     </div>
 
     <div class="infos__sci-fi">
-        <h5 class="infos__titres">Les films de Science-Fiction</h5>
+        <h2 class="infos__titres">Les films de Science-Fiction</h2>
             <div id="carousel__3">
-                <div id="carousel__3 movie_images">
+                <div id="carousel__3_movie_images">
                 </div>
                 <img src="images/left_arrow.png" class="boutons" id="left_sci-fi" alt="Bouton gauche Science-Fiction">
                 <img src="images/left_arrow.png" class="boutons" id="right_sci-fi" alt="Bouton droit Science-Fiction">
@@ -64,24 +69,27 @@
     </div>
 
     <div class="infos__drama">
-        <h6 class="infos__titres">Les films de Drama</h6>
+        <h2 class="infos__titres">Les films de Drama</h2>
             <div id="carousel__4">
-                <div id="carousel__4 movie_images">
+                <div id="carousel__4_movie_images">
                 </div>
                 <img src="images/left_arrow.png" class="boutons" id="left_drama" alt="Bouton gauche Drama">
                 <img src="images/left_arrow.png" class="boutons" id="right_drama" alt="Bouton droit Drama">
             </div>
     </div>
 
+    <div id="popup-overlay">
+        <div class="popup-content">
+        </div>
+    </div>
+
+    <footer>
+        <p>Tu ne sais pas quoi regarder pour passer une bonne soirée ? Alors JustStreamIt !</p>
+        <p>Projet 6 OpenClassrooms Edward Peytavin</p>
+    </footer>
+
 </body>
-<footer>
-    <p>Tu ne sais pas quoi regarder pour passer une bonne soirée ? Alors JustStreamIt !</p>
-    <p>Projet 6 OpenClassrooms Edward Peytavin</p>
-</footer>
 </html>
 
-<div id="popup-overlay">
-    <div class="popup-content">
-    </div>
-</div>
+
 
